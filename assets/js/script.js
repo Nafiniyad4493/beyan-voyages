@@ -10,14 +10,27 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    /* --- Mobile Menu Toggle (Basic implementation) --- */
+    /* --- Mobile Menu Toggle --- */
     const mobileBtn = document.querySelector('.mobile-menu-btn');
     const navLinks = document.querySelector('.nav-links');
+    const navItems = document.querySelectorAll('.nav-links a');
     
-    mobileBtn.addEventListener('click', () => {
-        // In a full implementation, you'd toggle a class to show/hide a mobile menu.
-        // For now, since links are hidden on mobile via CSS, we'd add logic here.
-        alert('Mobile menu clicked! (To be expanded based on design specs)');
+    const toggleMenu = () => {
+        mobileBtn.classList.toggle('active');
+        navLinks.classList.toggle('active');
+        // Prevent body scroll when menu is open
+        document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : 'auto';
+    };
+
+    mobileBtn.addEventListener('click', toggleMenu);
+
+    // Close menu when a link is clicked
+    navItems.forEach(item => {
+        item.addEventListener('click', () => {
+            if (navLinks.classList.contains('active')) {
+                toggleMenu();
+            }
+        });
     });
 
     /* --- Hero Background Slider --- */
