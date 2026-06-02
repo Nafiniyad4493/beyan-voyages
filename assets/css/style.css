@@ -46,33 +46,34 @@ p { font-size: 1.1rem; color: var(--text-muted); line-height: 2.1; margin-bottom
 
 .logo { 
     font-family: var(--font-heading); 
-    font-size: 0.8rem; 
+    font-size: 0.85rem; 
     font-weight: 700; 
     color: #000000 !important; 
     background-color: #fcf9f2;
-    width: 105px; /* Increased from 85px */
-    height: 105px; /* Increased from 85px */
+    width: 105px;
+    height: 105px;
     border-radius: 50%;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
     text-transform: uppercase;
     transition: var(--transition);
     text-shadow: none;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.6), inset 0 0 0 2px var(--muted-gold); /* Double border & shadow */
     flex-shrink: 0;
-    border: 2px solid rgba(255,255,255,0.1);
+    border: 3px solid #0d0f12; /* Distinct edge */
 }
 .logo:hover { 
-    transform: scale(1.08) rotate(2deg);
-    box-shadow: 0 12px 40px rgba(212, 175, 55, 0.2);
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 15px 50px rgba(212, 175, 55, 0.4);
+    background-color: #ffffff;
 }
 
 /* =========================
    BUTTON SYSTEM
-========================= */
+ ========================= */
 .btn-primary, .btn-secondary, .btn-minimal, .btn-gold {
     display: inline-flex; align-items: center; justify-content: center; gap: 12px;
     padding: 18px 42px; border-radius: 50px; font-family: var(--font-body); font-weight: 500; font-size: 0.9rem; 
@@ -103,21 +104,27 @@ p { font-size: 1.1rem; color: var(--text-muted); line-height: 2.1; margin-bottom
 
 /* =========================
    LAYOUT & COMPONENTS
-========================= */
+ ========================= */
 /* Navigation */
 .navbar { 
-    position: fixed; top: 0; width: 100%; z-index: 1000; padding: 40px 0; transition: var(--transition); 
+    position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; padding: 40px 0; transition: var(--transition); 
     background: transparent; 
 }
 .navbar.scrolled { 
-    background: rgba(13, 15, 18, 0.85); 
-    padding: 20px 0; 
-    backdrop-filter: blur(15px); 
-    -webkit-backdrop-filter: blur(15px); 
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    top: 20px; /* Floating gap */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%; /* Floating island width */
+    max-width: 1400px;
+    background: rgba(13, 15, 18, 0.9); 
+    padding: 15px 30px; 
+    border-radius: 100px; /* Capsule look */
+    backdrop-filter: blur(20px); 
+    -webkit-backdrop-filter: blur(20px); 
+    border: 1px solid rgba(212, 175, 55, 0.2); /* Subtle gold border */
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
 }
-.navbar.scrolled .logo { width: 85px; height: 85px; font-size: 0.65rem; }
+.navbar.scrolled .logo { width: 75px; height: 75px; font-size: 0.6rem; border-width: 2px; }
 .nav-container { display: flex; justify-content: space-between; align-items: center; }
 .nav-links { display: flex; gap: 45px; }
 .nav-links a { 
